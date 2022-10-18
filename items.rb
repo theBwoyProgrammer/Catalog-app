@@ -3,7 +3,8 @@ class Items
 
     attr_accessor :publish_date
 
-  def initialize(publish_date)
+  def initialize(id, publish_date)
+    @id = id
     @publish_date = publish_date
     @archived = false
   end
