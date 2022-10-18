@@ -1,7 +1,5 @@
 class Items
-    attr_reader :label, :genre, :author, :archived
-
-    attr_accessor :publish_date
+  attr_accessor :publish_date, :label, :genre, :author, :archived, :source
 
   def initialize(id, publish_date)
     @id = id
@@ -21,11 +19,17 @@ class Items
     @label = label
   end
 
+  def add_source(source)
+    @source = source
+  end
+
   def move_to_archive
     @archived = true if can_be_archived? == true
   end
 
-    private
+
+  private
+
   def can_be_archived?
     @archived = true
   end
