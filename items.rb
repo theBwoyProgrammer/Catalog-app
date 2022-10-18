@@ -27,7 +27,6 @@ class Items
     @archived = true if can_be_archived? == true
   end
 
-
   private
 
   def can_be_archived?
