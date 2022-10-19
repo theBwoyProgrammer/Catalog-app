@@ -1,13 +1,15 @@
 require_relative 'items'
 
 class Book < Items
-  attr_accessor :publisher, :cover_state, :books, :archived
+  attr_accessor :publisher, :cover_state, :archived
 
-  def initialize(publisher, cover_state)
+  def initialize(_id, publish_date, _archived, publisher, cover_state)
     super(publisher)
+    @id = Random.rand(1..1000)
     @publisher = publisher
     @cover_state = cover_state
-    @books = []
+    @archived = false
+    @publish_date = publish_date
   end
 
   def can_be_archived?
@@ -17,16 +19,6 @@ class Book < Items
       false
     end
   end
-
-  def create_book
-    puts 'Enter the book publisher:'
-    publisher = gets.chomp
-    puts 'Enter the book cover state:'
-    cover_state = gets.chomp
-    @books << Book.new(publisher, cover_state)
-
-    puts '********** Book created successfully **********'
-  end
 end
-book = Book.new('MCG Pub', 'good')
-puts book.create_book
+book = Book.new(1, '2019-01-01', false, 'publisher', 'bad')
+puts book.publish_date
