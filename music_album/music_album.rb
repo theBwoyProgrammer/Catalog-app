@@ -4,7 +4,7 @@ class MusicAlbum < Items
   attr_reader :on_spotify
 
   def initialize(publish_date, on_spotify)
-    super(publish_date: Date.today.to_s)
+    super(publish_date)
     puts @on_spotify = on_spotify
   end
 

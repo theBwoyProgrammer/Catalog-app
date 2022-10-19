@@ -9,12 +9,7 @@ class Genre
   end
 
   def add_item(item)
-    # item.genre == self
     @items << item unless @items.include? item
     puts @items
   end
 end
-
-genre1 = Genre.new("Nizam")
-
-puts genre1.add_item("happy")
