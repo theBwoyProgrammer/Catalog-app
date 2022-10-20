@@ -1,17 +1,15 @@
 class Label
   attr_accessor :id, :title, :color, :items
 
-  def initialize(id, title, color, _items)
-    @id = id
+  def initialize(title, color)
+    @id = Random.rand(1..1_000)
     @title = title
     @color = color
     @items = []
   end
 
   def add_item(item)
-    @items << item
-    items.add_label(self) unless item.include?(self)
+    items.label = self
+    items << item
   end
 end
-label = Label.new(1, 'title', 'color', 'items')
-puts label.title
