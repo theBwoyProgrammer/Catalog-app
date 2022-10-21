@@ -1,8 +1,8 @@
 class Items
-  attr_accessor :publish_date, :label, :genre, :author, :archived, :source
+  attr_accessor :publish_date, :label, :genre, :author, :archived, :id
 
-  def initialize(id, publish_date)
-    @id = id
+  def initialize(publish_date)
+    @id = Random.rand(1..1000)
     @publish_date = publish_date
     @archived = false
   end
@@ -17,17 +17,12 @@ class Items
 
   def add_label(label)
     @label = label
-  end
-
-  def add_source(source)
-    @source = source
+    label.add_item(self) unless label.items.include?(self)
   end
 
   def move_to_archive
     @archived = true if can_be_archived? == true
   end
-
-  private
 
   def can_be_archived?
     @archived = true
