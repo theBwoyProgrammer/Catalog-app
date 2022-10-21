@@ -18,17 +18,12 @@ class Items
 
   def add_label(label)
     @label = label
-  end
-
-  def add_source(source)
-    @source = source
+    label.add_item(self) unless label.items.include?(self)
   end
 
   def move_to_archive
     @archived = true if can_be_archived? == true
   end
-
-  private
 
   def can_be_archived?
     @archived = true
