@@ -1,8 +1,8 @@
 require 'json'
 require_relative 'music_album/music_album'
 require_relative 'genre/genre'
-require_relative 'book'
-require_relative 'label'
+require_relative './books_labels/book'
+require_relative './books_labels/label'
 
 class App
   attr_accessor :books
@@ -69,6 +69,8 @@ class App
     genres = File.size('./dataStore/genres.json').zero? ? [] : JSON.parse(File.read('./dataStore/genres.json'))
     genres.each do |genre|
       puts "Genre: #{genre['id']} -  #{genre['name']}"
+    end
+  end
 
   def create_book
     puts 'Enter the book publisher: '
