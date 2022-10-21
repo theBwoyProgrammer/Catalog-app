@@ -14,6 +14,7 @@ class Items
 
   def add_author(author)
     @author = author
+    author.add_item(self) unless author.items.include?(self)
   end
 
   def add_label(label)

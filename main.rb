@@ -9,15 +9,21 @@ class Main
 
   def option
     print 'Welcome to the CATALOG APP!'
-    while @input != 7
+
+    while @input != 10
       print "\nPlease choose an option by entering a number: \n\n"
-      print "1 - List all books\n"
-      print "2 - List all labels\n"
+      print "1 - List All Books\n"
+      print "2 - List All Labels\n"
       puts "3 - List All Music Albums\n"
       puts "4 - List All Genres\n"
-      puts "5 - Create a Book\n"
-      puts "6 - Add Music Album\n"
-      print "7 - Exit\n"
+      puts "5 - List All Games\n"
+      puts "6 - List All Authors\n"
+      puts "7 - Create a Book\n"
+      puts "8 - Create Music Album\n"
+      puts "9 - Create Game\n"
+
+      print "10 - Exit\n"
+
       start_app
     end
     abort '************** Thank you, BYE!!! **************'
