@@ -7,5 +7,7 @@ def start_app
     @app.create_book
   when 2
     @app.list_books
+  when 3
+    @app.list_labels
   end
 end
