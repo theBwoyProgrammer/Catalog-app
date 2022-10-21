@@ -1,3 +1,4 @@
+# rubocop:disable all
 require_relative 'app'
 
 def start_app
@@ -12,8 +13,16 @@ def start_app
   when 4
     @app.list_all_genres
   when 5
-    @app.create_book
+    @app.list_all_game
   when 6
+    @app.list_author
+  when 7
+    @app.create_book
+  when 8
     @app.add_music_album
+  when 9
+    @app.create_game
   end
 end
+
+# rubocop:disable all

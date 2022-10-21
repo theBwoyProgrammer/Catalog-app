@@ -3,6 +3,8 @@ require_relative 'music_album/music_album'
 require_relative 'genre/genre'
 require_relative './books_labels/book'
 require_relative './books_labels/label'
+require_relative 'author/author'
+require_relative 'game/game'
 
 class App
   attr_accessor :books
@@ -12,6 +14,8 @@ class App
     @music_albums = []
     @books = []
     @labels = []
+    @authors = []
+    @games = []
   end
 
   def add_music_album
@@ -137,37 +141,69 @@ class App
     end
   end
 
-
-
-
-  #Game
+  # Game
   def create_game
     puts 'Is game multiplayer (Yes/No): '
     multiplayer = gets.chomp
     puts 'Enter last played at (YYYY-MM-DD): '
     last_played_at = gets.chomp
-    label = add_label
-    label.add_item(game)
-    @labels << label
-    puts '********** Book a created successfully **********'
-  
-     game = Game.new(multiplayer,last_played_at)
+    puts 'Publisth Data (YYYY-MM-DD): '
+    publish_date = gets.chomp
+    games = Game.new(multiplayer, last_played_at, publish_date)
+    add_author
+    @game = games
+    save_game(games)
+    puts '********** Game a created successfully **********'
   end
-  
-  def list_game
+
+  def list_all_game
+    puts "\nList of All Games "
+    games = File.size('./dataStore/games.json').zero? ? [] : JSON.parse(File.read('./dataStore/games.json'))
+    games.each do |game|
+      puts "Multiplayer: #{game['multiplayer']}, Last player: #{game['last_played_at']}, publish Date: #{game['publish_date']}"
+    end
   end
-  
-  def save_game
+
+  def save_game(games)
+    game = {
+      id: games.id,
+      multiplayer: games.multiplayer,
+      last_played_at: games.last_played_at,
+      publish_date: games.publish_date
+    }
+    file = File.size('./dataStore/games.json').zero? ? [] : JSON.parse(File.read('./dataStore/games.json'))
+    file << game
+    File.write('./dataStore/games.json', file.to_json)
   end
-  
-  #Author
-  def create_author 
+
+  # Author
+
+  def add_author
+    puts 'Enter first name: '
+    first_name = gets.chomp
+    puts 'Enter last name: '
+    last_name = gets.chomp
+    authors = Author.new(first_name, last_name)
+    @authors << authors
+    save_author(authors)
   end
-  
-  def list_author 
+
+  def list_author
+    puts "\nList of All Author "
+    authors = File.size('./dataStore/authors.json').zero? ? [] : JSON.parse(File.read('./dataStore/authors.json'))
+    authors.each do |author|
+      puts "First name: #{author['first_name']}, Last name: #{author['last_name']},"
+    end
   end
-  
-  def save_author 
+
+  def save_author(authors)
+    author = {
+      id: authors.id,
+      first_name: authors.first_name,
+      last_name: authors.last_name
+    }
+    file = File.size('./dataStore/authors.json').zero? ? [] : JSON.parse(File.read('./dataStore/authors.json'))
+    file << author
+    File.write('./dataStore/authors.json', file.to_json)
   end
-  
 end
