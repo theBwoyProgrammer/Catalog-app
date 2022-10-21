@@ -1,3 +1,5 @@
+CREATE DATABASE catalog;
+
 CREATE TABLE item (
     id INT NOT NULL PRIMARY KEY,
     genre_id INT,
@@ -22,4 +24,16 @@ CREATE TABLE label (
     id INT NOT NULL PRIMARY KEY,
     title VARCHAR (50)
     color VARCHAR (50)
+);
+
+CREATE TABLE music_album (
+  id  INT,
+  name VARCHAR(100),
+  on_spotify BOOLEAN,
+  FOREIGN KEY(id) REFERENCES item(id)
+);
+
+CREATE TABLE genres (
+  id INT NOT NULL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
 );
