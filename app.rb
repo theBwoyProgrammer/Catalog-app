@@ -67,8 +67,3 @@ class App
     end
   end
 end
-
-app = App.new
-app.list_all_music_albums
-app.list_all_genres
-# app.add_music_album
