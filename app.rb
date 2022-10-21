@@ -136,4 +136,38 @@ class App
       puts '____________________________________________________________________________________________'
     end
   end
+
+
+
+
+  #Game
+  def create_game
+    puts 'Is game multiplayer (Yes/No): '
+    multiplayer = gets.chomp
+    puts 'Enter last played at (YYYY-MM-DD): '
+    last_played_at = gets.chomp
+    label = add_label
+    label.add_item(game)
+    @labels << label
+    puts '********** Book a created successfully **********'
+  
+     game = Game.new(multiplayer,last_played_at)
+  end
+  
+  def list_game
+  end
+  
+  def save_game
+  end
+  
+  #Author
+  def create_author 
+  end
+  
+  def list_author 
+  end
+  
+  def save_author 
+  end
+  
 end
