@@ -69,6 +69,9 @@ Feel free to check the [issues page](https://github.com/Nizamuddin4493/Catalog-a
 
 Give a [⭐️](https://github.com/Nizamuddin4493/Catalog-app/stargazers) if you like this project!
 
+## Acknowledgments
+- Hat tip to anyone whose code was used
+
 ## 📝 License
 
 This project is [MIT](LICENSE) licensed.
