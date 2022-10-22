@@ -18,7 +18,7 @@ class App
     @games = []
   end
 
-  # Add new Music Album 
+  # Add new Music Album
   def add_music_album
     print 'Does this music on sportigy? (Y/N) '
     sportify = gets.chomp.downcase == 'y'
@@ -55,7 +55,7 @@ class App
     puts '____________________________________________________________________________________________'
   end
 
-  # Adding New Genre 
+  # Adding New Genre
   def add_genre(item)
     print 'Enter Genre Name: '
     name = gets.chomp
@@ -200,9 +200,8 @@ class App
     File.write('./dataStore/games.json', file.to_json)
   end
 
-
   # Adding New Author
-  def add_author(games)
+  def add_author(_games)
     puts 'Enter first name: '
     first_name = gets.chomp
     puts 'Enter last name: '
@@ -212,7 +211,7 @@ class App
     save_author(authors)
   end
 
-  #listing All Authers
+  # listing All Authers
   def list_author
     puts '____________________________________________________________________________________________'
     puts "\nList of All Author "
