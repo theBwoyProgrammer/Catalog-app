@@ -10,7 +10,7 @@
 
 ## Video Demo
 
-[Catalog of My Things](www.google.com)
+[Catalog of My Things](https://drive.google.com/file/d/1-rSV5PwNnq5WXDws9Qkn47_7eF1CY6YD/view?usp=sharing)
 
 ## Getting Started
 
